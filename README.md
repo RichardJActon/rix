@@ -140,15 +140,6 @@ rix(
 nix_build(project_path = ".")
 ```
 
-If you don’t have R installed, but have the Nix package manager
-installed, you can run a temporary R session with R using this command
-(it will build an environment with the latest development version of
-`{rix}` ):
-
-    nix-shell --expr "$(curl -sl https://raw.githubusercontent.com/ropensci/rix/main/inst/extdata/default.nix)"
-
-You can then create new development environment definitions, build them,
-and start using them.
 </details>
 
 ## Getting started for new users
@@ -163,6 +154,18 @@ to learn how to set up and use Nix smoothly.
 Try Nix inside Docker by following this
 `vignette("z-advanced-topic-using-nix-inside-docker")`
 [vignette](https://github.com/ropensci/rix/blob/HEAD/vignettes/z-advanced-topic-using-nix-inside-docker.Rmd).
+
+### `{rix}` for Nix(OS) users
+
+If you don’t have R installed, but have the Nix package manager
+installed, you can run a temporary R session with R using this command
+(it will build an environment with the latest development version of
+`{rix}` ):
+
+    nix-shell --expr "$(curl -sl https://raw.githubusercontent.com/ropensci/rix/main/inst/extdata/default.nix)"
+
+You can then create new development environment definitions, build them,
+and start using them.
 
 ## How is Nix different from Docker+renv/{groundhog}/{rang}/(Ana/Mini)Conda/Guix? or Why Nix?
 
