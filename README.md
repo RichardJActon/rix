@@ -5,6 +5,7 @@
 - [Quick start for returning users](#quick-start-for-returning-users)
 - [Getting started for new users](#getting-started-for-new-users)
   - [Docker](#docker)
+  - [`{rix}` for Nix(OS) users](#rix-for-nixos-users)
 - [Why Nix? Comparison with Docker+renv/Conda/Guix](#why-nix-comparison)
 - [Contributing](#contributing)
 - [Thanks](#thanks)
