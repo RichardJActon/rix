@@ -158,9 +158,9 @@ Try Nix inside Docker by following this
 ### `{rix}` for Nix(OS) users
 
 If you don’t have R installed, but have the Nix package manager
-installed, you can run a temporary R session with R using this command
-(it will build an environment with the latest development version of
-`{rix}` ):
+installed, you can run a temporary R session with {rix} available by
+using a Nix shell using this command (it will build an environment with
+the latest development version of `{rix}` ):
 
     nix-shell --expr "$(curl -sl https://raw.githubusercontent.com/ropensci/rix/main/inst/extdata/default.nix)"
 
