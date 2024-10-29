@@ -130,6 +130,19 @@ testthat::test_that("testing renv_helpers", {
     testthat::expect_equal(call, test_call)
 
     unlink(tmpf)
+
+    testthat::expect_type(renv2nix(renv_sample_files[1], return_rix_call = TRUE), "language")
+    testthat::expect_type(renv2nix(renv_sample_files[2], return_rix_call = TRUE), "language")
+    # Unexpectedly emo has a git remote not a github remote
+    testthat::expect_warning({
+      call <- renv2nix(renv_sample_files[3], return_rix_call = TRUE)
+    }, "has the unsupported remote type")
+    # available_r does not include the latest R version 4.4.1 that I'm currently running
+    testthat::expect_error({
+      renv2nix(renv_sample_files[4], project_path = renv_sample_dir)
+      unlink(paste0(renv_sample_dir, "/default.nix"))
+    }, "The provided R version is likely wrong")
+
   })
 
   testthat::test_that("Testing `renv_lock_r_ver()`", {
