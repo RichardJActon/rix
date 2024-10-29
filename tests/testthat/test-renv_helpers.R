@@ -133,7 +133,12 @@ testthat::test_that("testing renv_helpers", {
 
     testthat::expect_type(renv2nix(renv_sample_files[1], return_rix_call = TRUE), "language")
     testthat::expect_type(renv2nix(renv_sample_files[2], return_rix_call = TRUE), "language")
-    # Unexpectedly emo has a git remote not a github remote
+    # Unexpectedly emo has a git remote not a github remote despite being on github.
+    # after testing with a codeberg remote - git::https://codeberg.org/RichardJActon/colourScaleR
+    # git remotes do not always appear to get a sha value recorded by renv, just a hash
+    # different forges may also have different urls for branches /tree/<branch name>appears to be
+    # the case for github/lab but codeberg, for example, uses /src/branch/<branch name>
+    # handling of installs from branches and tags is incomplete for github/lab.
     testthat::expect_warning({
       call <- renv2nix(renv_sample_files[3], return_rix_call = TRUE)
     }, "has the unsupported remote type")
